@@ -212,7 +212,9 @@ button{
     background: rgb(255, 255, 255);
     transition: all 0.3s ease;
   }
-  
+  .description{
+    text-transform: uppercase;
+  }
   .btn-41:hover {
     color: rgb(0, 0, 0);
   }
@@ -361,3 +363,4 @@ button{
     }
 
   }
+  

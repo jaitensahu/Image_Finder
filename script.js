@@ -28,7 +28,7 @@ searchBtn.addEventListener("click", (e) => {
 // ---------function to Fetch Images and Append Them to the UI container-------
 async function fetchImage(img, pg) {
   let fetchData = await fetch(
-    `https://api.unsplash.com/search/photos?page=${pg}&query=${img}&client_id=iz82rGN-l3Kv361FI-mM4msCyZ0HHIimFpHg6hSVlhw`
+    `https://api.unsplash.com/search/photos?page=${pg}&query=${img}&client_id=iz82rGN-l3Kv361FI-mM4msCyZ0HHIimFpHg6hSVlhw&count=20`
   );
   let imageData = await fetchData.json();
   let imgArray = imageData.results;
@@ -102,8 +102,16 @@ function hidePara2() {
 let page = 1;
 
 // -----------Show More Click Event------------------------------
-showMoreBtn.addEventListener("click", () => {
-  page++;
-  fetchImage(searchImage.value, page);
-});
+// showMoreBtn.addEventListener("click", () => {
+//   page++;
+//   fetchImage(searchImage.value, page);
+// });
 
+// Infinite Scroll
+// console.log(window.offsetHeight);
+window.addEventListener("scroll",()=>{
+  if((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
+    page++;
+    fetchImage(searchImage.value,page);
+  }
+})
