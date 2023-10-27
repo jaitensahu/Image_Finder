@@ -99,6 +99,7 @@ a {
 .img {
     position: relative;
     height: fit-content;
+    flex-grow: 1;
 }
 
 .img P {
@@ -118,6 +119,7 @@ a {
     font-size: 24px;
     z-index: 100;
     color: red;
+    
 }
 
 .img h6 {
@@ -131,14 +133,16 @@ a {
 
 img {
     width: 100%;
-    height: fit-content;
+    height: 100%;
     transition: 0.2s linear;
+    
 }
 
 .col {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 25px;
-    grid-template-rows:min-content;
+    /* grid-template-rows:min-content; */
 }
 
 .animate__animated.animate__fadeInUp {
